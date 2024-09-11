@@ -576,6 +576,7 @@ type LoginData {
   access_token: String
   status: Boolean!
   error: String
+  user: User
 }
 
 type Query {

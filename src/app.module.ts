@@ -12,7 +12,8 @@ import { SharedModule } from './shared/shared.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.graphql'),
-      playground:true,
+      playground: true,
+      introspection: process.env.NODE_ENV !== 'production',
       context: ({ req }) => ({ request: req }),
     }),
     GraphqlApiModule,
@@ -21,4 +22,4 @@ import { SharedModule } from './shared/shared.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
